@@ -75,3 +75,13 @@ export async function fetchCryptoData(cryptoIds: string[]) {
 
   return response.data;
 }
+
+export async function fetchGlobalData() {
+  const response = await axios.get('https://api.coingecko.com/api/v3/global');
+
+  if (response.status !== 200) {
+    throw new Error('Failed to fetch global data');
+  }
+
+  return response.data;
+}

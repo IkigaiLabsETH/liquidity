@@ -5,6 +5,8 @@ import { NextPage, InferGetStaticPropsType } from "next";
 import { fetchPrices } from "../lib/coingecko";
 import BTCETHRatio from "../components/BTCETHRatio";
 import ETHereum from '../components//ETHereum';
+import TotalMarketCap from '../components/TotalMarketCap';
+
 
 type EthereumData = {
   name: string;
@@ -24,6 +26,9 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices
             {crypto.id.charAt(0).toUpperCase() + crypto.id.slice(1)} Price: {crypto.price} ({crypto.priceDiff})
           </h2>
         ))}
+      <BTCETHRatio />
+      <ETHereum />
+      <TotalMarketCap />
       </div>
 
       <div className={styles.connect}>
@@ -34,8 +39,6 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices
           }}
         />
       </div>
-      <BTCETHRatio />
-      <ETHereum />
     </main>
   );
 };

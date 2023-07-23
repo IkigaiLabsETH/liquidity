@@ -34,20 +34,31 @@
 
 
 .ethereumData {
-  font-size: 22px; /* adjust as needed */
-  color: #333; /* adjust as needed */
+  font-family: 'satoshi';
+  text-align: center;
+  color: yellow;  /* replace with the specific yellow color code you're using */
+  font-size: 22px; /* Adjust this value as needed */
+  text-align: center; /* change this to center alignment */
+  width: 100%; /* take full width */
 }
 
 .title {
-  font-size: 22px; /* adjust as needed */
-  color: #333; /* adjust as needed */
-  font-weight: bold;
+  font-family: 'satoshi';
+  text-align: center;
+  color: yellow;  /* replace with the specific yellow color code you're using */
+  font-size: 22px; /* Adjust this value as needed */
+  text-align: center; /* change this to center alignment */
+  width: 100%; /* take full width */
 }
 
 
 .text {
   font-family: 'satoshi';
+  text-align: center;
   color: yellow;  /* replace with the specific yellow color code you're using */
+  font-size: 22px; /* Adjust this value as needed */
+  text-align: center; /* change this to center alignment */
+  width: 100%; /* take full width */
 }
 
 .main {
@@ -56,6 +67,12 @@
   justify-content: center;
   align-items: center;
   height: 100vh; /* take full viewport height */
+  font-family: 'satoshi';
+  text-align: center;
+  color: yellow;  /* replace with the specific yellow color code you're using */
+  font-size: 22px; /* Adjust this value as needed */
+  text-align: center; /* change this to center alignment */
+  width: 100%; /* take full width */
 }
 
 .bitcoinPrice {
@@ -68,9 +85,21 @@
   font-size: 22px; /* Adjust this value as needed */
   text-align: center; /* change this to center alignment */
   width: 100%; /* take full width */
+  font-family: 'satoshi';
+  text-align: center;
+  color: yellow;  /* replace with the specific yellow color code you're using */
+  font-size: 22px; /* Adjust this value as needed */
+  text-align: center; /* change this to center alignment */
+  width: 100%; /* take full width */
 }
 
 .EthereumDetails {
+  font-size: 22px; /* Adjust this value as needed */
+  text-align: center; /* change this to center alignment */
+  width: 100%; /* take full width */
+  font-family: 'satoshi';
+  text-align: center;
+  color: yellow;  /* replace with the specific yellow color code you're using */
   font-size: 22px; /* Adjust this value as needed */
   text-align: center; /* change this to center alignment */
   width: 100%; /* take full width */
