@@ -15,11 +15,11 @@ export interface CryptoDataDisplay {
 
 export async function fetchPrices(): Promise<CryptoDataDisplay[]> {
   const response = await axios.get(
-    'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tezos,polygon,arweave&vs_currencies=usd'
+    'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tezos,arweave&vs_currencies=usd'
   );
 
   const response2 = await axios.get(
-    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,tezos,polygon,arweave&sparkline=true'
+    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,tezos,arweave&sparkline=true'
   );
 
   if (response.status !== 200 || response2.status !== 200) {
