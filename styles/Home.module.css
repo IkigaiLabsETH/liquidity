@@ -9,28 +9,37 @@
 }
 
 .ethereumHeader {
-  font-size: 30px; 
+  font-size: 22px; 
   color: #444; /* change this to your preferred color */
   text-align: center;
 }
 
 .ethereumDetails {
-  font-size: 20px; /* change this to your preferred size */
   font-family: 'satoshi';
   text-align: center;
   color: yellow;  /* replace with the specific yellow color code you're using */
-  font-size: 42px; /* Adjust this value as needed */
+  font-size: 22px; /* Adjust this value as needed */
   text-align: center; /* change this to center alignment */
   width: 100%; /* take full width */
 }
 
+.data {
+  font-family: 'satoshi';
+  text-align: center;
+  color: yellow;  /* replace with the specific yellow color code you're using */
+  font-size: 22px; /* Adjust this value as needed */
+  text-align: center; /* change this to center alignment */
+  width: 100%; /* take full width */
+}
+
+
 .ethereumData {
-  font-size: 24px; /* adjust as needed */
+  font-size: 22px; /* adjust as needed */
   color: #333; /* adjust as needed */
 }
 
 .title {
-  font-size: 32px; /* adjust as needed */
+  font-size: 22px; /* adjust as needed */
   color: #333; /* adjust as needed */
   font-weight: bold;
 }
@@ -50,19 +59,19 @@
 }
 
 .bitcoinPrice {
-  font-size: 69px; /* Adjust this value as needed */
+  font-size: 22px; /* Adjust this value as needed */
   text-align: center; /* change this to center alignment */
   width: 100%; /* take full width */
 }
 
 .EthereumComponent {
-  font-size: 69px; /* Adjust this value as needed */
+  font-size: 22px; /* Adjust this value as needed */
   text-align: center; /* change this to center alignment */
   width: 100%; /* take full width */
 }
 
 .EthereumDetails {
-  font-size: 69px; /* Adjust this value as needed */
+  font-size: 22px; /* Adjust this value as needed */
   text-align: center; /* change this to center alignment */
   width: 100%; /* take full width */
 }
