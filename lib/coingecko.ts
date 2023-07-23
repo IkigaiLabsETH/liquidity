@@ -41,14 +41,6 @@ export async function fetchPrices() {
   // Sort coins by performance
   data = data.sort((a, b) => b.priceDiff - a.priceDiff);
 
-  // Convert priceDiff to string
-  data = data.map(item => ({
-    ...item,
-    priceDiff: `${item.priceDiff.toFixed(2)}%`
-  }));
-
-  return data;
-}
 
 export async function fetchCryptoData(cryptoIds: string[]) {
   const ids = cryptoIds.join(",");
