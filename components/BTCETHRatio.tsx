@@ -1,8 +1,6 @@
 // components/BTCETHRatio.tsx
 import React, { useEffect, useState } from 'react';
 import { fetchCryptoData } from '../lib/coingecko';
-import styles from "../styles/Home.module.css";
-
 
 interface RatioState {
   btcToEth: string | null;
