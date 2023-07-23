@@ -16,8 +16,12 @@
 
 .ethereumDetails {
   font-size: 20px; /* change this to your preferred size */
-  color: #777; /* change this to your preferred color */
+  font-family: 'satoshi';
   text-align: center;
+  color: yellow;  /* replace with the specific yellow color code you're using */
+  font-size: 42px; /* Adjust this value as needed */
+  text-align: center; /* change this to center alignment */
+  width: 100%; /* take full width */
 }
 
 .ethereumData {
