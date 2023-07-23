@@ -1,18 +1,7 @@
 // lib/coingecko.ts
 import axios from 'axios';
 
-export interface CryptoDataDisplay {
-  id: string;
-  price: string;
-  priceDiff: number;
-}
-
-export interface CryptoDataDisplay {
-  id: string;
-  price: string;
-}
-
-export async function fetchPrices(): Promise<CryptoDataDisplay[]> {
+export async function fetchPrices() {
   const response = await axios.get(
     'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tezos,polygon,arweave&vs_currencies=usd'
   );
@@ -28,7 +17,7 @@ export async function fetchPrices(): Promise<CryptoDataDisplay[]> {
   const prices = response.data;
   const markets = response2.data;
 
-  let data: CryptoDataDisplay[] = ['bitcoin', 'ethereum', 'tezos', 'arweave'].map(id => {
+  let data = ['bitcoin', 'ethereum', 'tezos', 'arweave'].map(id => {
     const marketData = markets.find(market => market.id === id);
     let priceDiff = 0;
     let price = 'N/A';
@@ -52,17 +41,16 @@ export async function fetchPrices(): Promise<CryptoDataDisplay[]> {
   // Sort coins by performance
   data = data.sort((a, b) => b.priceDiff - a.priceDiff);
 
-  // Convert priceDiff to string and store the result in a new array
-  const displayData: CryptoDataDisplay[] = data.map(item => ({
-    id: item.id,
-    price: item.price,
+  // Convert priceDiff to string
+  data = data.map(item => ({
+    ...item,
     priceDiff: `${item.priceDiff.toFixed(2)}%`
   }));
 
-  return displayData;
+  return data;
 }
 
-export async function fetchCryptoDataDisplay(cryptoIds: string[]) {
+export async function fetchCryptoData(cryptoIds: string[]) {
   const ids = cryptoIds.join(",");
   const response = await axios.get(
     `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`
