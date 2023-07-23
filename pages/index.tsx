@@ -5,7 +5,6 @@ import { NextPage, InferGetStaticPropsType } from "next";
 import { fetchPrices } from "../lib/coingecko";
 import BTCETHRatio from "../components/BTCETHRatio";
 import ETHereum from '../components//ETHereum';
-import TrendingCoins from '../components/TrendingCoins';
 
 type EthereumData = {
   name: string;
