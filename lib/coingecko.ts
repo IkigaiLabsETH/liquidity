@@ -51,16 +51,17 @@ export async function fetchPrices() {
     };
   });
 
-  // Sort coins by performance
-  data = data.sort((a, b) => b.priceDiff - a.priceDiff);
+// Sort coins by performance
+data = data.sort((a, b) => b.priceDiff - a.priceDiff);
 
-    // Create a new array to hold the data for display
-    const displayData: CryptoDataDisplay[] = data.map(item => ({
-      ...item,
-      priceDiff: `${item.priceDiff.toFixed(2)}%` // now priceDiff is a string
-    }));
-  
-    return displayData;
+// Create a new array to hold the data for display
+const displayData: CryptoDataDisplay[] = data.map(item => ({
+  id: item.id,
+  price: item.price,
+  priceDiff: `${item.priceDiff.toFixed(2)}%` // now priceDiff is a string
+}));
+
+return displayData;
 
   // Convert priceDiff to string
   data = data.map(item => ({
