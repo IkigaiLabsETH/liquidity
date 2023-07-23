@@ -4,7 +4,7 @@ import axios from 'axios';
 type CryptoData = {
   id: string;
   price: string;
-  priceDiff: string;  // this should be a string as you're converting it to a string later
+  priceDiff: number; // keep priceDiff as a number for sorting
 };
 
 export async function fetchPrices() {
@@ -23,7 +23,7 @@ export async function fetchPrices() {
   const prices = response.data;
   const markets = response2.data;
 
-  let data = ['bitcoin', 'ethereum', 'tezos', 'arweave'].map(id => {
+  let data: CryptoData[] = ['bitcoin', 'ethereum', 'tezos', 'arweave'].map(id => {
     const marketData = markets.find(market => market.id === id);
     let priceDiff = 0;
     let price = 'N/A';
@@ -40,7 +40,7 @@ export async function fetchPrices() {
     return {
       id: id,
       price: price,
-      priceDiff: priceDiff.toFixed(2)
+      priceDiff: priceDiff
     };
   });
 
@@ -50,7 +50,7 @@ export async function fetchPrices() {
   // Convert priceDiff to string
   data = data.map(item => ({
     ...item,
-    priceDiff: `${item.priceDiff}%`
+    priceDiff: `${item.priceDiff.toFixed(2)}%`
   }));
 
   return data;
