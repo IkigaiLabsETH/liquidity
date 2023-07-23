@@ -1,26 +1,37 @@
-// index.tsx
-import { ConnectWallet } from "@thirdweb-dev/react";
-import styles from "../styles/Home.module.css";
-import { NextPage } from "next";
-import BitcoinPriceDisplay from "./BitcoinPriceDisplay";  // Import the component that displays Bitcoin price
+// components/BitcoinPriceDisplay.tsx
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const BitcoinPrice: NextPage = () => {
+const BitcoinPriceDisplay: React.FC = () => {
+  const [price, setPrice] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchBitcoinPrice = async () => {
+      try {
+        const response = await axios.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
+        if (response.data.bitcoin && response.data.bitcoin.usd) {
+          setPrice(response.data.bitcoin.usd);
+        } else {
+          setError('Invalid data from API');
+        }
+      } catch (e) {
+        setError('Failed to fetch data');
+      }
+    };
+
+    fetchBitcoinPrice();
+  }, []);
+
   return (
-    <main>
-      <div className={styles.connect}>
-        <ConnectWallet
-          dropdownPosition={{
-            side: "bottom",
-            align: "center",
-          }}
-        />
-      </div>
-
-      <div className={styles.bitcoinPrice}>
-        <BitcoinPriceDisplay />  // Call the component that displays Bitcoin price
-      </div>
-    </main>
+    <div>
+      {error ? (
+        <p>{error}</p>
+      ) : (
+        <p>Bitcoin price: {price}</p>
+      )}
+    </div>
   );
 };
 
-export default BitcoinPrice;
+export default BitcoinPriceDisplay;
