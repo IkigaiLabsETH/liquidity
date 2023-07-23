@@ -2,6 +2,7 @@
 import { ConnectWallet } from "@thirdweb-dev/react";
 import styles from "../styles/Home.module.css";
 import { NextPage } from "next";
+import BitcoinPriceDisplay from "./BitcoinPriceDisplay";  // Import the component that displays Bitcoin price
 
 const BitcoinPrice: NextPage = () => {
   return (
@@ -16,7 +17,7 @@ const BitcoinPrice: NextPage = () => {
       </div>
 
       <div className={styles.bitcoinPrice}>
-        <BitcoinPrice />
+        <BitcoinPriceDisplay />  // Call the component that displays Bitcoin price
       </div>
     </main>
   );
