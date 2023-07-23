@@ -1,7 +1,19 @@
 // lib/coingecko.ts
 import axios from 'axios';
 
-export async function fetchPrices() {
+export interface CryptoData {
+  id: string;
+  price: string;
+  priceDiff: number;
+}
+
+export interface CryptoDataDisplay {
+  id: string;
+  price: string;
+  priceDiff: string;
+}
+
+export async function fetchPrices(): Promise<CryptoDataDisplay[]> {
   const response = await axios.get(
     'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tezos,polygon,arweave&vs_currencies=usd'
   );
@@ -17,7 +29,7 @@ export async function fetchPrices() {
   const prices = response.data;
   const markets = response2.data;
 
-  let data = ['bitcoin', 'ethereum', 'tezos', 'arweave'].map(id => {
+  let data: CryptoData[] = ['bitcoin', 'ethereum', 'tezos', 'arweave'].map(id => {
     const marketData = markets.find(market => market.id === id);
     let priceDiff = 0;
     let price = 'N/A';
@@ -41,13 +53,14 @@ export async function fetchPrices() {
   // Sort coins by performance
   data = data.sort((a, b) => b.priceDiff - a.priceDiff);
 
-  // Convert priceDiff to string
-  data = data.map(item => ({
-    ...item,
+  // Convert priceDiff to string and store the result in a new array
+  const displayData: CryptoDataDisplay[] = data.map(item => ({
+    id: item.id,
+    price: item.price,
     priceDiff: `${item.priceDiff.toFixed(2)}%`
   }));
 
-  return data;
+  return displayData;
 }
 
 export async function fetchCryptoData(cryptoIds: string[]) {
