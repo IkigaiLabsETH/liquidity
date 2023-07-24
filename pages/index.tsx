@@ -5,7 +5,6 @@ import { NextPage, InferGetStaticPropsType } from "next";
 import { fetchPrices } from "../lib/coingecko";
 import BTCETHRatio from "../components/BTCETHRatio";
 import Ethereum from '../components/ETHereum';
-import { Footer } from "../components/Footer";
 
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices }) => {
   return (
