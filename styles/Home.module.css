@@ -1,11 +1,36 @@
 /* Home.module.css */
 
+.trendingTitle {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: 'satoshi';
+  color: yellow;  /* replace with the specific yellow color code you're using */
+  width: 100%; /* take full width */
+
+}
+
+
 .trendingCoins {
-  @apply flex flex-col items-center my-8;
+  font-size: 22px; /* Adjust this value as needed */
+  text-align: center; /* change this to center alignment */
+  width: 100%; /* take full width */
+  font-family: 'satoshi';
+  text-align: center;
+  color: yellow;  /* replace with the specific yellow color code you're using */
 }
 
 .trendingCoin {
-  @apply flex flex-col items-center bg-gray-100 p-4 rounded-lg shadow-md m-4;
+  font-size: 22px; /* Adjust this value as needed */
+  text-align: center; /* change this to center alignment */
+  width: 100%; /* take full width */
+  font-family: 'satoshi';
+  text-align: center;
+  color: yellow;  /* replace with the specific yellow color code you're using */
+  font-size: 22px; /* Adjust this value as needed */
+  text-align: center; /* change this to center alignment */
+  width: 100%; /* take full width */
 }
 
 .ethereumHeader {

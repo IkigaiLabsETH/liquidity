@@ -1,0 +1,73 @@
+/* Trending.module.css */
+
+.trendingTitle {
+  text-align: center;
+  padding: 20px 0;
+  /* other styles */
+}
+
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'satoshi';
+  text-align: center;
+  color: yellow;
+  font-size: 22px;
+  width: 100%;
+  display: flex;
+}
+
+.trendingCoins {
+  font-family: 'satoshi';
+  text-align: center;
+  color: yellow;
+  font-size: 22px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+
+.trendingHeader {
+  font-size: 22px;
+  color: #444;
+  text-align: center;
+  font-family: 'satoshi';
+}
+
+.trendingCoin {
+  font-family: 'satoshi';
+  text-align: center;
+  color: yellow;
+  font-size: 22px;
+  width: 30%; /* slightly less than 33.33% to allow for padding, margins, borders, etc. */
+  margin: 0 10px;
+}
+
+.decrease {
+  color: red;
+}
+
+.increase {
+  color: green;
+}
+
+.trendingCoin h4 {
+  font-weight: bold;
+  color: #333;
+}
+
+.connect {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 2rem;
+  position: fixed;
+  top: 10px;
+  right: 40px;
+}

@@ -85,3 +85,70 @@ export async function fetchGlobalData() {
 
   return response.data;
 }
+
+
+interface MarketData {
+  current_price: {
+    usd: number;
+  };
+  price_change_percentage_24h: number;
+}
+
+export interface Coin {
+  id: string;
+  symbol: string;
+  name: string;
+  image: {
+    large: string;
+  };
+  market_data: {
+    current_price: {
+      usd: number;
+    };
+    price_change_percentage_24h: number;
+  };
+}
+
+interface Item {
+  id: string;
+  symbol: string;
+  name: string;
+  market_cap_rank: number;
+  thumb: string;
+  small: string;
+  large: string;
+  slug: string;
+  price_btc: number;
+}
+
+interface CoinDetails {
+  item: Item;
+}
+
+interface Trending {
+  coins: CoinDetails[];
+  exchanges: string[];
+}
+
+export async function fetchTrendingCoins(): Promise<Coin[]> {
+  try {
+    const trendingResponse = await axios.get<Trending>(
+      'https://api.coingecko.com/api/v3/search/trending'
+    );
+
+    // Now for each trending coin, get detailed data
+    const coinDataRequests = trendingResponse.data.coins.map(coin =>
+      axios.get<Coin>(`https://api.coingecko.com/api/v3/coins/${coin.item.id}`)
+    );
+    const coinDataResponses = await Promise.all(coinDataRequests);
+    
+    // Extract the data from the responses
+    const coins = coinDataResponses.map(response => response.data);
+    
+    return coins;
+  } catch (error) {
+    console.error('Error fetching trending coins:', error);
+    return [];
+  }
+}
+
