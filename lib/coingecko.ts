@@ -152,3 +152,37 @@ export async function fetchTrendingCoins(): Promise<Coin[]> {
   }
 }
 
+interface NFTPrice {
+  native_currency: string;
+  usd: number;
+}
+
+export interface NFT {
+  id: string;
+  contract_address: string;
+  name: string;
+  asset_platform_id: string;
+  symbol: string;
+  price_floor: NFTPrice;
+  volume_24h: NFTPrice;
+}
+
+export const fetchTopMarketCapNFTs = async (): Promise<NFT[]> => {
+  const listResponse = await axios.get('https://api.coingecko.com/api/v3/nfts/list?order=market_cap_usd_desc&per_page=10&page=1');
+  const listData = listResponse.data;
+
+  // Fetch additional details for each NFT
+  const detailsData = [];
+  for (const nft of listData) {
+    const detailsResponse = await axios.get(`https://api.coingecko.com/api/v3/nfts/${nft.id}`);
+    const details = await detailsResponse.data;
+    detailsData.push(details);
+  }
+
+  return detailsData;
+};
+
+
+
+
+
