@@ -14,10 +14,9 @@
 
 .trendingCoins {
   font-size: 22px; /* Adjust this value as needed */
-  text-align: center; /* change this to center alignment */
+  text-align: left; /* change this to center alignment */
   width: 100%; /* take full width */
   font-family: 'satoshi';
-  text-align: center;
   color: yellow;  /* replace with the specific yellow color code you're using */
 }
 
@@ -29,8 +28,6 @@
   text-align: center;
   color: yellow;  /* replace with the specific yellow color code you're using */
   font-size: 22px; /* Adjust this value as needed */
-  text-align: center; /* change this to center alignment */
-  width: 100%; /* take full width */
 }
 
 .ethereumHeader {
@@ -41,11 +38,12 @@
 
 .ethereumDetails {
   font-family: 'satoshi';
-  text-align: center;
   color: yellow;  /* replace with the specific yellow color code you're using */
-  font-size: 22px; /* Adjust this value as needed */
-  text-align: center; /* change this to center alignment */
   width: 100%; /* take full width */
+  text-align: center;
+  padding: 2px 0;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .data {

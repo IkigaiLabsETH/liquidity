@@ -5,10 +5,11 @@ import { NextPage, InferGetStaticPropsType } from "next";
 import { fetchPrices } from "../lib/coingecko";
 import BTCETHRatio from "../components/BTCETHRatio";
 import Ethereum from '../components/ETHereum';
-import TotalMarketCap from '../components/TotalMarketCap';
+import { Footer } from "../components/Footer";
 
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices }) => {
   return (
+
     <main className={styles.main}>
       <div className={styles.priceContainer}>
         {prices.map((crypto) => (
@@ -35,6 +36,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices
             align: "center",
           }}
         />
+        
       </div>
     </main>
   );

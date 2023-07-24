@@ -36,12 +36,12 @@ const BTCETHRatio: React.FC = () => {
   }, []);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <div style={{ textAlign: 'center' }}>
       {error ? (
         <h2>{error}</h2>
       ) : (
         <>
-          <h2 style={{ marginRight: '1rem' }}>BTC/ETH Ratio: {ratio.btcToEth}</h2>
+          <h2>BTC/ETH Ratio: {ratio.btcToEth}</h2>
           <h2>ETH/BTC Ratio: {ratio.ethToBtc}</h2>
         </>
       )}

@@ -15,11 +15,11 @@ export interface CryptoDataDisplay {
 
 export async function fetchPrices(): Promise<CryptoDataDisplay[]> {
   const response = await axios.get(
-    'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tezos,bankless-dao&vs_currencies=usd'
+    'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tezos&vs_currencies=usd'
   );
 
   const response2 = await axios.get(
-    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,tezos,bankless-dao&sparkline=true'
+    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,tezos&sparkline=true'
   );
 
   if (response.status !== 200 || response2.status !== 200) {
@@ -29,7 +29,7 @@ export async function fetchPrices(): Promise<CryptoDataDisplay[]> {
   const prices = response.data;
   const markets = response2.data;
 
-  let data: CryptoData[] = ['bitcoin', 'ethereum', 'tezos', 'bankless-dao'].map(id => {
+  let data: CryptoData[] = ['bitcoin', 'ethereum', 'tezos'].map(id => {
     const marketData = markets.find(market => market.id === id);
     let priceDiff = 0;
     let price = 'N/A';
