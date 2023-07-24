@@ -27,10 +27,8 @@ const EthereumComponent: React.FC = () => {
 
   return (
     <div className={styles.ethereumDetails }>
-      <p className={styles.ethereumDetails}>MC: ${data.market_data.market_cap.usd}</p>
-      <p className={styles.ethereumDetails}>Volume: ${data.market_data.total_volume.usd}</p>
-      <p className={styles.ethereumDetails}>High: ${data.market_data.high_24h.usd}</p>
-      <p className={styles.ethereumDetails}>Low: ${data.market_data.low_24h.usd}</p>
+      <h2 className={styles.ethereumDetails}>MC: ${data.market_data.market_cap.usd}</h2>
+      <h2 className={styles.ethereumDetails}>Volume: ${data.market_data.total_volume.usd}</h2>
     </div>
   );
 };

@@ -5,6 +5,8 @@ import { NextPage, InferGetStaticPropsType } from "next";
 import { fetchPrices } from "../lib/coingecko";
 import BTCETHRatio from "../components/BTCETHRatio";
 import Ethereum from '../components/ETHereum';
+import EthereumTreasury from '../components/EthereumTreasury';
+
 
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices }) => {
   return (
@@ -24,9 +26,15 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices
         <BTCETHRatio />
       </div>
 
+      <div className={styles.ethereumTreasury}>
+        <EthereumTreasury />
+      </div>
+
       <div className={styles.ethereum}>
         <Ethereum />
       </div>
+
+
 
       <div className={styles.connect}>
         <ConnectWallet

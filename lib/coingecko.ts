@@ -181,6 +181,22 @@ export const fetchTopMarketCapNFTs = async (): Promise<NFT[]> => {
   return detailsData;
 };
 
+export const fetchEthereumTreasury = async (): Promise<any> => {
+  try {
+    const response = await axios.get('https://api.coingecko.com/api/v3/companies/public_treasury/ethereum');
+
+    if (response.status !== 200) {
+      throw new Error('Failed to fetch Ethereum treasury');
+    }
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+
 
 
 
