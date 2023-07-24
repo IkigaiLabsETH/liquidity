@@ -1,1 +1,0 @@
-export { MintPass } from './MintPass'

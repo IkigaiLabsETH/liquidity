@@ -1,1 +1,0 @@
-export { NFTDropSlider } from './NFTDropSlider'

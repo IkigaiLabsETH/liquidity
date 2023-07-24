@@ -1,1 +1,0 @@
-export { NFTGrid } from './NFTGrid'

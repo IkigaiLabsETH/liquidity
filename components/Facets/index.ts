@@ -1,1 +1,0 @@
-export { Facets } from './Facets'

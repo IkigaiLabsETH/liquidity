@@ -1,1 +1,0 @@
-export { FeaturedDrop } from './FeaturedDrop'
