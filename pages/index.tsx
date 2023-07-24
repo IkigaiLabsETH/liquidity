@@ -28,10 +28,6 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices
         <Ethereum />
       </div>
 
-      <div className={styles.totalMarketCap}>
-        <TotalMarketCap />
-      </div>
-
       <div className={styles.connect}>
         <ConnectWallet
           dropdownPosition={{

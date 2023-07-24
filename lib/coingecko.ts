@@ -163,7 +163,6 @@ export interface NFT {
   name: string;
   asset_platform_id: string;
   symbol: string;
-  price_floor: NFTPrice;
   volume_24h: NFTPrice;
 }
 
