@@ -36,7 +36,6 @@ const MarketMetrics: React.FC = () => {
         <div key={index} className={styles.card}>
           <h3>{metric.name}</h3>
           <p>Volume: {metric.volume}</p>
-          <p>Price: {metric.price}</p>
         </div>
       ))}
     </div>
