@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchCryptoData } from '../lib/coingecko';
 
+
 interface RatioState {
   btcToEth: string | null;
   ethToBtc: string | null;

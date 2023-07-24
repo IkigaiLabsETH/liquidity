@@ -2,6 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+// Utility function to format numbers with commas
+const formatNumber = (num) => {
+  return num.toLocaleString();
+};
+
 const BitcoinPriceDisplay: React.FC = () => {
   const [price, setPrice] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -28,7 +33,7 @@ const BitcoinPriceDisplay: React.FC = () => {
       {error ? (
         <p>{error}</p>
       ) : (
-        <p>Bitcoin price: {price}</p>
+        <p>BTC: {price}</p>
       )}
     </div>
   );

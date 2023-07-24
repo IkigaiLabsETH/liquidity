@@ -2,6 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from '../styles/Home.module.css';
 
+// Utility function to format numbers with commas
+const formatNumber = (num) => {
+  return num.toLocaleString();
+};
+
 const EthereumComponent: React.FC = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -27,8 +32,10 @@ const EthereumComponent: React.FC = () => {
 
   return (
     <div className={styles.ethereumDetails }>
-      <h2 className={styles.ethereumDetails}>MC: ${data.market_data.market_cap.usd}</h2>
-      <h2 className={styles.ethereumDetails}>Volume: ${data.market_data.total_volume.usd}</h2>
+    <div className={styles.ethereumDetails}>
+      <h2 className={styles.ethereumDetails}>MC: ${formatNumber(data.market_data.market_cap.usd)}</h2>
+      <h2 className={styles.ethereumDetails}>24h Vol: ${formatNumber(data.market_data.total_volume.usd)}</h2>
+    </div>
     </div>
   );
 };
