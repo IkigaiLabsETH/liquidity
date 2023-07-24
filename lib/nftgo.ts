@@ -1,7 +1,9 @@
 // lib/nftgo.ts
 import axios from 'axios';
 
+
 export interface MarketMetric {
+    name: string;
     marketplace: string;
     volume?: number;
     transactions?: number;
@@ -13,8 +15,7 @@ export const fetchMarketMetrics = async (): Promise<MarketMetric[]> => {
     const response = await axios.get('https://data-api.nftgo.io/eth/v1/market/metrics', {
       headers: {
         'Accept': 'application/json',
-        'Authorization': `Bearer ${NFT_GO}`  // Replace YOUR_API_KEY with your actual API key
-
+        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_NFT_GO}`
       }
     });
 
