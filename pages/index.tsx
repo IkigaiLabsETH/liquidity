@@ -4,31 +4,32 @@ import styles from "../styles/Home.module.css";
 import { NextPage, InferGetStaticPropsType } from "next";
 import { fetchPrices } from "../lib/coingecko";
 import BTCETHRatio from "../components/BTCETHRatio";
-import ETHereum from '../components//ETHereum';
+import Ethereum from '../components/ETHereum';
 import TotalMarketCap from '../components/TotalMarketCap';
-
-
-type EthereumData = {
-  name: string;
-  // other data points...
-};
-
-interface HomeProps {
-  ethereumData: EthereumData;
-}
 
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices }) => {
   return (
     <main className={styles.main}>
-      <div className={styles.price}>
+      <div className={styles.priceContainer}>
         {prices.map((crypto) => (
-          <h2 key={crypto.id}>
-            {crypto.id.charAt(0).toUpperCase() + crypto.id.slice(1)} Price: {crypto.price} ({crypto.priceDiff})
-          </h2>
+          <div key={crypto.id} className={styles.price}>
+            <h1>
+              {crypto.id.charAt(0).toUpperCase() + crypto.id.slice(1)} Price: {crypto.price} ({crypto.priceDiff})
+            </h1>
+          </div>
         ))}
-      <BTCETHRatio />
-      <ETHereum />
-      <TotalMarketCap />
+      </div>
+
+      <div className={styles.ratio}>
+        <BTCETHRatio />
+      </div>
+
+      <div className={styles.ethereum}>
+        <Ethereum />
+      </div>
+
+      <div className={styles.totalMarketCap}>
+        <TotalMarketCap />
       </div>
 
       <div className={styles.connect}>
