@@ -6,7 +6,7 @@ export const fetchTrendingGainers = async () => {
       'https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/gainers-losers',
       {
         headers: {
-          'X-CMC_PRO_API_KEY': 'YOUR_API_KEY',
+          'CMC_PRO': 'YOUR_API_KEY',
         },
       }
     );
