@@ -196,8 +196,17 @@ export const fetchEthereumTreasury = async (): Promise<any> => {
   }
 };
 
-
-
-
-
-
+export const fetchDefiData = async () => {
+  try {
+    const response = await axios.get('https://api.coingecko.com/api/v3/global/decentralized_finance_defi');
+    
+    if (response.data) {
+      return response.data;
+    } else {
+      throw new Error('Invalid data from API');
+    }
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
