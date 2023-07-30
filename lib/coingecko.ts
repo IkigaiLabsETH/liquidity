@@ -228,3 +228,13 @@ export const fetchHistoricalPrice = async () => {
   }
 };
 
+export const fetchTokenInfo = async (id) => {
+  try {
+    const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+

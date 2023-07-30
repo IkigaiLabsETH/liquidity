@@ -5,6 +5,7 @@ import { fetchDailyFees } from '../lib/defillama';
 
 const DailyFees: React.FC = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const defillamaId = '1027'; // Ethereum's defillamaId
@@ -12,14 +13,20 @@ const DailyFees: React.FC = () => {
       try {
         const dailyFeesData = await fetchDailyFees(defillamaId);
         setData(dailyFeesData);
+        setLoading(false);
       } catch (error) {
         // Handle error
         console.error('Error fetching daily fees:', error);
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
+
+  if (loading) {
+    return <p>Loading data...</p>;
+  }
 
   return (
     <div>
@@ -33,7 +40,7 @@ const DailyFees: React.FC = () => {
           ))}
         </ul>
       ) : (
-        <p>Loading data...</p>
+        <p>No data available.</p>
       )}
     </div>
   );
