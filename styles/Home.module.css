@@ -29,6 +29,15 @@
   font-weight: bold;
 }
 
+.price {
+  font-family: 'satoshi';
+  color: yellow;  /* replace with the specific yellow color code you're using */
+  width: 100%; /* take full width */
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
 .trendingCoins {
   font-size: 22px; /* Adjust this value as needed */
   text-align: left; /* change this to center alignment */

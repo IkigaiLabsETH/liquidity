@@ -6,6 +6,7 @@ import { fetchPrices } from "../lib/coingecko";
 import BTCETHRatio from "../components/BTCETHRatio";
 import Ethereum from '../components/ETHereum';
 import EthereumTreasury from '../components/EthereumTreasury';
+import EthereumPriceIncrease from "../components/EthereumPriceIncrease";
 
 
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices }) => {
@@ -33,7 +34,6 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices
       <div className={styles.ethereum}>
         <Ethereum />
       </div>
-
 
 
       <div className={styles.connect}>

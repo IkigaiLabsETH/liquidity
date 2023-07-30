@@ -210,3 +210,21 @@ export const fetchDefiData = async () => {
     throw error;
   }
 };
+
+export const fetchHistoricalPrice = async () => {
+  try {
+    const response = await axios.get(
+      'https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=30'
+    );
+
+    if (response.data.prices) {
+      return response.data.prices;
+    } else {
+      throw new Error('Invalid data from API');
+    }
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
