@@ -231,9 +231,13 @@ export const fetchHistoricalPrice = async () => {
 export const fetchTokenInfo = async (id) => {
   try {
     const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`);
-    return response.data;
+    if (response.data) {
+      return response.data;
+    } else {
+      throw new Error('Invalid data from API');
+    }
   } catch (error) {
-    console.error(error);
+    console.error('Error fetching token info:', error);
     throw error;
   }
 };
