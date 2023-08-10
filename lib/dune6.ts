@@ -7,12 +7,24 @@ const meta = {
 };
 const header = new Headers(meta);
 
-//  Call the Dune API
-const response = await fetch('https://api.dune.com/api/v1/query/2225509/execute', {
-    method: 'POST',
-    headers: header
-});
-const body = await response.text();
+export const queryID = 1299312
 
-// Log the returned response
-console.log(body);
+export const parameters = [
+  ];
+
+// Add parameters we would pass to the query
+var params = { "query_parameters" : { "collectors": "2225509" }};
+var params = { "query_parameters" : { "volume eth": "2225507" }};
+var params = { "query_parameters" : { "sales usd": "2225508" }};
+var body = JSON.stringify(params);
+
+//  Call the Dune API
+const response = fetch('https://api.dune.com/api/v1/query/{{queryID}}/execute', {
+    method: 'POST',
+    headers: header,
+    body: body // This is where we pass the parameters
+});
+const response_object = await response.text();
+
+//Log the returned response
+console.log(response_object);
