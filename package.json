@@ -10,6 +10,7 @@
     "code:prettier": "prettier --write '**/*.{ts,tsx}'"
   },
   "dependencies": {
+    "@cowprotocol/ts-dune-client": "^0.0.2",
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.12",
     "@reduxjs/toolkit": "^1.8.2",

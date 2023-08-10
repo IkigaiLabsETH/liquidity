@@ -132,6 +132,14 @@
     stream-browserify "^3.0.0"
     util "^0.12.4"
 
+"@cowprotocol/ts-dune-client@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/ts-dune-client/-/ts-dune-client-0.0.2.tgz#7c913cef0852584ffaabb45a0a80dd8924e23116"
+  integrity sha512-OtqzwjmTQpvhDiWpgROleTff4XASMoa4GElEvFYgzlg/W90GV1vS187XxZbCKRg2vmBI8SLZAB/8hmH93hWV4Q==
+  dependencies:
+    cross-fetch "^3.1.5"
+    loglevel "^1.8.0"
+
 "@emotion/babel-plugin@^11.11.0":
   version "11.11.0"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.11.0.tgz#c2d872b6a7767a9d176d007f5b31f7d504bb5d6c"
@@ -5472,6 +5480,11 @@ log-symbols@^4.1.0:
   dependencies:
     chalk "^4.1.0"
     is-unicode-supported "^0.1.0"
+
+loglevel@^1.8.0:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/loglevel/-/loglevel-1.8.1.tgz#5c621f83d5b48c54ae93b6156353f555963377b4"
+  integrity sha512-tCRIJM51SHjAayKwC+QAg8hT8vg6z7GSgLJKGvzuPb1Wc+hLzqtuVLxp6/HzSPOozuK+8ErAhy7U/sVzw8Dgfg==
 
 loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
