@@ -41,6 +41,7 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices
       </div>
 
 
+
       <div className={styles.connect}>
         <ConnectWallet
           dropdownPosition={{
