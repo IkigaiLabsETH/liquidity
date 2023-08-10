@@ -16,9 +16,9 @@ const DuneAnalyticsData: React.FC = () => {
   useEffect(() => {
     const fetchDuneData = async () => {
       try {
-        const queryID = 1215383; // Replace with your actual query ID
+        const queryID = 1299312; // Replace with your actual query ID
         const parameters = [
-          // Replace with your actual parameters
+          2225506 // Replace with your actual parameters
         ];
         
         const fetchedData: Record<string, unknown>[] = await fetchDataFromDune(queryID, parameters);
@@ -50,7 +50,6 @@ const DuneAnalyticsData: React.FC = () => {
       {data.map((item, index) => (
         <div key={index}>
           <h3>Item {index + 1}</h3>
-          <p>Total Amount: {item.total_amount}</p>
           <p>USD: ${item.total_value_usd.toLocaleString()}</p>
           {/* Render other data fields here */}
         </div>
