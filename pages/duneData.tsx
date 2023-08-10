@@ -1,24 +1,13 @@
 // pages/duneData.tsx
 
-import React, { FC, useState, useEffect } from 'react';
-import { fetchDataFromDune } from '../lib/dune';
+import React, { FC } from 'react';
+import DuneAnalyticsData from '../components/DuneAnalyticsData';
+import styles from '../styles/Home.module.css';
 
 const DuneDataPage: FC = () => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const queryID = 1215383; // Replace with your actual query ID
-    const parameters = [
-      // Replace with your actual parameters
-    ];
-
-    fetchDataFromDune(queryID, parameters).then(setData);
-  }, []);
-
   return (
-    <div>
-      <h1>Dune Analytics Data</h1>
-      {/* Render your Dune data here */}
+    <div className={styles.container}>
+      <DuneAnalyticsData />
     </div>
   );
 };

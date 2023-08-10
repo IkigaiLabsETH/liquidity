@@ -1,8 +1,10 @@
-// lib/dune.ts
+// lib/dune4.ts
 
 import { QueryParameter, DuneClient } from "@cowprotocol/ts-dune-client";
 
 const DUNE_API_KEY = process.env.DUNE_API_KEY;
+
+
 
 export const duneClient = new DuneClient(DUNE_API_KEY ?? "");
 
@@ -15,4 +17,5 @@ export const fetchDataFromDune = async (queryID: number, parameters: QueryParame
     return null;
   }
 };
+
 

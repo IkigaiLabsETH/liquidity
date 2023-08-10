@@ -7,6 +7,7 @@ import BTCETHRatio from "../components/BTCETHRatio";
 import Ethereum from '../components/ETHereum';
 import EthereumTreasury from '../components/EthereumTreasury';
 import EthereumPriceIncrease from "../components/EthereumPriceIncrease";
+import DuneAnalyticsData from "../components/DuneAnalyticsData";
 
 
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices }) => {
@@ -33,6 +34,10 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices
 
       <div className={styles.ethereum}>
         <Ethereum />
+      </div>
+
+      <div className={styles.ethereum}>
+        <DuneAnalyticsData />
       </div>
 
 

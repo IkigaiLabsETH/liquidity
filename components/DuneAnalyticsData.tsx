@@ -1,7 +1,7 @@
 // components/DuneAnalyticsData.tsx
 
 import React, { useEffect, useState } from 'react';
-import { fetchDataFromDune } from '../lib/dune';
+import { fetchDataFromDune } from '../lib/dune4';
 
 interface DuneData {
   total_amount: number;
