@@ -4,8 +4,9 @@ import React, { useEffect, useState } from 'react';
 import { fetchDataFromDune } from '../lib/dune4';
 
 interface DuneData {
-  total_amount: number;
-  total_value_usd: number;
+  total_users: number;
+  total_sales: number;
+  total_volume: number;
   // ... other fields you expect from Dune Analytics
 }
 
@@ -18,13 +19,14 @@ const DuneAnalyticsData: React.FC = () => {
       try {
         const queryID = 1299312; // Replace with your actual query ID
         const parameters = [
-          2225506 // Replace with your actual parameters
+         // Replace with your actual parameters
         ];
         
         const fetchedData: Record<string, unknown>[] = await fetchDataFromDune(queryID, parameters);
         const refinedData: DuneData[] = fetchedData.map(item => ({
-          total_amount: item.total_amount as number,
-          total_value_usd: item.total_value_usd as number,
+          total_users: item.total_users as number,
+          total_sales: item.total_sales as number,
+          total_volume: item.total_volume as number,
           // ... other fields you expect from Dune Analytics
         }));
         setData(refinedData);
@@ -45,16 +47,15 @@ const DuneAnalyticsData: React.FC = () => {
   }
 
   return (
-    <div>
-      <h2>Dune Analytics Data</h2>
+    <main>
       {data.map((item, index) => (
         <div key={index}>
-          <h3>Item {index + 1}</h3>
-          <p>USD: ${item.total_value_usd.toLocaleString()}</p>
-          {/* Render other data fields here */}
+          <h2>USD: ${item.total_sales.toLocaleString()}</h2>
+          <h2>COLLECTOR: ${item.total_users.toLocaleString()}</h2>
+          <h2>VOLUME ETH: ${item.total_volume.toLocaleString()}</h2>
         </div>
       ))}
-    </div>
+    </main>
   );
 };
 
