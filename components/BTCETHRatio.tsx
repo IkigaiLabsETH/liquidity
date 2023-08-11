@@ -1,3 +1,4 @@
+'use client'
 // components/BTCETHRatio.tsx
 import React, { useEffect, useState } from 'react';
 import { fetchCryptoData } from '../lib/coingecko';

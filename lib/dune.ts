@@ -3,8 +3,9 @@
 
 import { QueryParameter, DuneClient } from "@cowprotocol/ts-dune-client";
 
-const DUNE_API_KEY = process.env.NEXT_PUBLIC_DUNE_API_KEY;
-const duneClient = new DuneClient(DUNE_API_KEY ?? "");
+const DUNE_API_KEY = process.env.DUNE_API_KEY;
+
+export const duneClient = new DuneClient(DUNE_API_KEY ?? "");
 
 const queryID = 1299312;
 const parameters = [
