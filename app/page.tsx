@@ -1,6 +1,7 @@
 // index.tsx
 // 'client'
 import styles from "../styles/Home.module.css";
+import "../styles/globals.css";
 import { NextPage } from "next";
 import { fetchPrices } from "../lib/coingecko";
 import BTCETHRatio from "../components/BTCETHRatio";
