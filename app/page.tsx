@@ -1,4 +1,5 @@
 // index.tsx
+// 'client'
 import { ConnectWallet } from "@thirdweb-dev/react";
 import styles from "../styles/Home.module.css";
 import { NextPage, InferGetStaticPropsType } from "next";

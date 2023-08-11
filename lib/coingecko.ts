@@ -1,5 +1,10 @@
 // lib/coingecko.ts
+'client'
+
 import axios from 'axios';
+
+const detailsData: any[] = [];
+
 
 export interface CryptoData {
   id: string;
@@ -166,20 +171,21 @@ export interface NFT {
   volume_24h: NFTPrice;
 }
 
-export const fetchTopMarketCapNFTs = async (): Promise<NFT[]> => {
+export const fetchTopMarketCapNFTs = async (): Promise<any[]> => {
   const listResponse = await axios.get('https://api.coingecko.com/api/v3/nfts/list?order=market_cap_usd_desc&per_page=10&page=1');
   const listData = listResponse.data;
 
   // Fetch additional details for each NFT
-  const detailsData = [];
+  const detailsData: any[] = [];
   for (const nft of listData) {
     const detailsResponse = await axios.get(`https://api.coingecko.com/api/v3/nfts/${nft.id}`);
-    const details = await detailsResponse.data;
+    const details = detailsResponse.data;
     detailsData.push(details);
   }
 
   return detailsData;
 };
+
 
 export const fetchEthereumTreasury = async (): Promise<any> => {
   try {

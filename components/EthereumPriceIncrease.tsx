@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useState } from 'react';
 import { fetchHistoricalPrice } from '../lib/coingecko';
 import styles from "../styles/Home.module.css";

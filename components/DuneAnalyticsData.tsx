@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useState } from 'react';
 import { fetchDataFromDune } from '../lib/dune';
 
@@ -7,29 +9,42 @@ interface DuneData {
   total_volume: number;
 }
 
-const DuneAnalyticsData: React.FC = async () => {
-  const fetchDuneData = async () => {
+const DuneAnalyticsData: React.FC = () => {
+  const [data, setData] = useState<DuneData[] | null>(null);
+  const [loading, setLoading] = useState(true);
 
-      const queryID = 1299312; // Replace with your actual query ID
-      const parameters = [
-       // Replace with your actual parameters
-      ];
+  useEffect(() => {
+    const fetchDuneData = async () => {
+      try {
+        const fetchedData: any = await fetchDataFromDune();
+        
+        if (Array.isArray(fetchedData)) {
+          const refinedData: DuneData[] = fetchedData.map(item => ({
+            total_users: item.total_users as number,
+            total_sales: item.total_sales as number,
+            total_volume: item.total_volume as number,
+            // ... other fields you expect from Dune Analytics
+          }));
+          setData(refinedData);
+        } else {
+          console.error("Unexpected data structure from Dune:", fetchedData);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-      const fetchedData: any = await fetchDataFromDune(queryID, parameters);
-      const refinedData: DuneData[] = fetchedData.map(item => ({
-        total_users: item.total_users as number,
-        total_sales: item.total_sales as number,
-        total_volume: item.total_volume as number,
-        // ... other fields you expect from Dune Analytics
-      }));
-      return refinedData;
+    fetchDuneData();
+  }, []);
 
-  };
-
-  const data = await fetchDuneData();
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   if (!data) {
-    return <p>Loading...</p>;
+    return <p>No data available</p>;
   }
 
   return (

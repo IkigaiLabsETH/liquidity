@@ -1,4 +1,5 @@
 // components/TotalMarketCap.tsx
+'use client'
 import React, { useEffect, useState } from 'react';
 import { fetchGlobalData } from '../lib/coingecko';
 

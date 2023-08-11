@@ -1,8 +1,31 @@
+'use client'
+
 import React, { useEffect, useState } from 'react';
 import { fetchDefiData } from '../lib/coingecko';
 
+
+interface Defi {
+  defi_market_cap: string;
+  eth_market_cap: string;
+  defi_to_eth_ratio: string;
+  trading_volume_24h: string;
+  defi_dominance: string;
+  top_coin: {
+    name: string;
+    dominance: string;
+  };
+}
+
+interface DefiDataResponse {
+  data: {
+    decentralized_finance_defi: Defi;
+  };
+}
+
+
 const DefiData: React.FC = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<DefiDataResponse | null>(null);
+
 
   useEffect(() => {
     const fetchData = async () => {

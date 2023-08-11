@@ -4,14 +4,31 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from '../styles/Home.module.css';
 
+interface MarketData {
+  market_cap: {
+    usd: number;
+  };
+  total_volume: {
+    usd: number;
+  };
+  // ... other fields you expect
+}
+
+interface EthereumData {
+  market_data: MarketData;
+  // ... other fields you expect
+}
+
+
 // Utility function to format numbers with commas
 const formatNumber = (num) => {
   return num.toLocaleString();
 };
 
 const EthereumComponent: React.FC = () => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+  const [data, setData] = useState<EthereumData | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
 
   useEffect(() => {
     axios.get('https://api.coingecko.com/api/v3/coins/ethereum')
