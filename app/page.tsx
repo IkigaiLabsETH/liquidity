@@ -1,13 +1,11 @@
 // index.tsx
 // 'client'
-import { ConnectWallet } from "@thirdweb-dev/react";
 import styles from "../styles/Home.module.css";
-import { NextPage, InferGetStaticPropsType } from "next";
+import { NextPage } from "next";
 import { fetchPrices } from "../lib/coingecko";
 import BTCETHRatio from "../components/BTCETHRatio";
 import Ethereum from '../components/ETHereum';
 import EthereumTreasury from '../components/EthereumTreasury';
-import EthereumPriceIncrease from "../components/EthereumPriceIncrease";
 import DuneAnalyticsData from "../components/DuneAnalyticsData";
 
 
