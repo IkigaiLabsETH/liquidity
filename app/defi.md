@@ -1,4 +1,4 @@
-// index.tsx
+// defi.tsx
 // 'client'
 import styles from "../styles/Home.module.css";
 import "../styles/globals.css";
@@ -13,16 +13,6 @@ const Defi: NextPage = async () => {
     return (
 
     <main className={styles.main}>
-      <div className={styles.priceContainer}>
-        {prices.map((crypto) => (
-          <div key={crypto.id} className={styles.price}>
-            <h1>
-              {crypto.id.charAt(0).toUpperCase() + crypto.id.slice(1)} Price: {crypto.price} ({crypto.priceDiff})
-            </h1>
-          </div>
-        ))}
-      </div>
-
       <div className={styles.ratio}>
         <DefiData />
       </div>
