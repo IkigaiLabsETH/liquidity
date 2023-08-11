@@ -1,35 +1,44 @@
-## Getting Started
+[![Styled With Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
+[![Build](https://github.com/cowprotocol/ts-dune-client/actions/workflows/pull-request.yaml/badge.svg)](https://github.com/cowprotocol/ts-dune-client/actions/workflows/pull-request.yaml/badge.svg)
 
-Create a project using this example:
+# Dune Client TS
 
-```bash
-npx thirdweb create --template next-typescript-starter
+This [NPM package](https://www.npmjs.com/package/@cowprotocol/ts-dune-client) implements all the basic routes defined in the [Dune API Docs](https://dune.com/docs/api/). It also introduces a convenience method `refresh` which combines `execute`, `getStatus` and `getResults` in a way that makes it nearly trivial to fetch query execution results.
+
+Install the package
+
+```sh
+yarn add @cowprotocol/ts-dune-client
 ```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```ts
+import { QueryParameter, DuneClient } from "@cowprotocol/ts-dune-client";
+const { DUNE_API_KEY } = process.env;
 
-On `pages/_app.tsx`, you'll find our `ThirdwebProvider` wrapping your app, this is necessary for our [hooks](https://portal.thirdweb.com/react) and
-[UI Components](https://portal.thirdweb.com/ui-components) to work.
+const client = new DuneClient(DUNE_API_KEY ?? "");
+const queryID = 1215383;
+const parameters = [
+  QueryParameter.text("TextField", "Plain Text"),
+  QueryParameter.number("NumberField", 3.1415926535),
+  QueryParameter.date("DateField", "2022-05-04 00:00:00"),
+  QueryParameter.enum("ListField", "Option 1"),
+];
 
-### Deploy to IPFS
+client
+  .refresh(queryID, parameters)
+  .then((executionResult) => console.log(executionResult.result?.rows));
 
-Deploy a copy of your application to IPFS using the following command:
-
-```bash
-yarn deploy
+// should look like
+// [
+//   {
+//     date_field: "2022-05-04 00:00:00",
+//     list_field: "Option 1",
+//     number_field: "3.1415926535",
+//     text_field: "Plain Text",
+//   },
+// ]
 ```
 
-## Learn More
+Note also that the client has methods `execute`, `getStatus`, `getResult` and `cancelExecution`
 
-To learn more about thirdweb and Next.js, take a look at the following resources:
-
-- [thirdweb React Documentation](https://docs.thirdweb.com/react) - learn about our React SDK.
-- [thirdweb TypeScript Documentation](https://docs.thirdweb.com/typescript) - learn about our JavaScript/TypeScript SDK.
-- [thirdweb Portal](https://docs.thirdweb.com) - check our guides and development resources.
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-
-You can check out [the thirdweb GitHub organization](https://github.com/thirdweb-dev) - your feedback and contributions are welcome!
-
-## Join our Discord!
-
-For any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).
+Check out this [Demo Project](https://github.com/bh2smith/demo-ts-dune-client)!
