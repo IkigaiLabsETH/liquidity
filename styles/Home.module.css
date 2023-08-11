@@ -1,5 +1,14 @@
 /* Home.module.css */
 
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: yellow; 
+}
+
 .trendingTitle {
   text-align: center;
   padding: 20px 0;
