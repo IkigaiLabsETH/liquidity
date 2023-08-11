@@ -1,10 +1,9 @@
 // lib/dune.ts
-'client'
+// 'client'
 
 import { QueryParameter, DuneClient } from "@cowprotocol/ts-dune-client";
 
 const DUNE_API_KEY = process.env.DUNE_API_KEY;
-
 export const duneClient = new DuneClient(DUNE_API_KEY ?? "");
 
 export const queryID = 1299312

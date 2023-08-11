@@ -10,7 +10,9 @@ import EthereumPriceIncrease from "../components/EthereumPriceIncrease";
 import DuneAnalyticsData from "../components/DuneAnalyticsData";
 
 
-const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices }) => {
+const Home: NextPage = async () => {
+  const prices = await fetchPrices();
+  console.log(process.env.DUNE_API_KEY)
   return (
 
     <main className={styles.main}>
@@ -43,27 +45,27 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ prices
 
 
       <div className={styles.connect}>
-        <ConnectWallet
+        {/* <ConnectWallet
           dropdownPosition={{
             side: "bottom",
             align: "center",
           }}
-        />
+        /> */}
         
       </div>
     </main>
   );
 };
 
-export async function getStaticProps() {
-  const prices = await fetchPrices();
+// export async function getStaticProps() {
+  
 
-  return {
-    props: {
-      prices,
-    },
-    revalidate: 60, // Re-fetch the data every minute
-  };
-}
+//   return {
+//     props: {
+//       prices,
+//     },
+//     revalidate: 60, // Re-fetch the data every minute
+//   };
+// }
 
 export default Home;
